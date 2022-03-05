@@ -8,7 +8,7 @@ from . import login_manager
 class User(db.Model):
   __tablename__ = 'users'
   id =db.Column(db.Integer,primary_key =True)
-  username = db.Column(db.string(255),index = True)
+  username = db.Column(db.String(255),index = True)
   firstname = db.Column(db.String(255))
   lastname = db.Column(db.String(255))
   email = db.Column(db.String(255),unique = True,index = True)
