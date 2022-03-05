@@ -1,0 +1,21 @@
+{% macro displayPitches(pitches_list)%} 
+{%for pitch in pitches_list%}
+
+
+<div class="">
+    <h3>{{pitch.pitch_title}}</h3>
+    <p>{{pitch.pitch_content}}</p>
+    <p>Posted by: {{pitch.user.username}} 
+</div>
+
+{%endfor%} 
+{%endmacro%} 
+%macro displayComments(comments_list)%} 
+{%for comment in comments_list%}
+
+<h5>{{comment.user.username}}</h5>
+<p>{{comment.comment}}</p>
+
+
+{%endfor%} 
+{%endmacro%}
