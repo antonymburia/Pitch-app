@@ -7,6 +7,7 @@ class Config:
 
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitchapp'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
+    SECRET_KEY = os.environ.get('SECRET_KEY')
 
     #email configurations
     MAIL_SERVER = 'smtp.gmail.com'
@@ -37,6 +38,8 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
+
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitchapp'
 
     DEBUG = True
 config_options = {
