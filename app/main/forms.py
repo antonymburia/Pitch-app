@@ -17,3 +17,5 @@ class PitchForm(FlaskForm):
     text = TextAreaField('Text',validators=[DataRequired()])
     category = SelectField('Type',choices=[('interview','interview-pitch'),('product','product-pitch'),('motivation', 'motivational-pitch')],validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+
