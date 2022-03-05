@@ -10,7 +10,9 @@ from flask_mail import Mail
 
 
 # Initializing Flask Extensions
-
+login_manager = LoginManager()
+login_manager.session_protection = 'strong'
+login_manager.login_view = 'auth.login'
 bootstrap = Bootstrap()
 mail = Mail()
 db = SQLAlchemy()
