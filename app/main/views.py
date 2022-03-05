@@ -40,13 +40,13 @@ def new_pitch():
         category = pitch_form.category.data
 
         # Updated pitch instance
-        new_pitch = Pitch(pitch_title=title,pitch_content=pitch,category=category,user=current_user,likes=0,dislikes=0)
+        new_pitch = Pitch(title=title,content=pitch,category=category,user=current_user,likes=0,dislikes=0)
 
         # Save pitch method
         new_pitch.save_pitch()
         return redirect(url_for('.index'))
 
     
-    return render_template('new_pitch.html',pitch_form = pitch_form )
+    return render_template('newpitch.html',pitch_form = pitch_form )
 
 
