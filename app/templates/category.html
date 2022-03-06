@@ -1,6 +1,12 @@
 {% extends 'base.html' %} 
 {% import 'macros.html' as macro %} 
 {%block content%}
+<h2>Interview pitches</h2>
+{{macro.displayPitches(interview)}}
 
+<h2>Promotion Pitches</h2>
+{{macro.displayPitches(promotion)}}
 
+<h2>Product Pitches</h2>
+{{macro.displayPitches(product)}}
 {% endblock %}

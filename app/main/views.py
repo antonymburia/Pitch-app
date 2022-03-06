@@ -84,6 +84,7 @@ def category():
     interview_pitches = Pitch.query.filter_by(category='interview').all()
     product_pitches = Pitch.query.filter_by(category='product').all()
     promotion_pitches = Pitch.query.filter_by(category='promotion').all()
+    pr = 'pr'
 
-    return render_template('category.html', interview = interview_pitches, product = product_pitches, promotion = promotion_pitches)
+    return render_template('category.html', interview = interview_pitches, product = product_pitches, promotion = promotion_pitches, pr = pr)
 
