@@ -3,9 +3,13 @@
 {%block content%}
 <h2>Interview pitches</h2>
 {{macro.displayPitches(interview)}}
+{% if current_user.is_authenticated %} 
+{{ wtf.quick_form(comment_form) }} 
+{%endif%}
 
 <h2>Promotion Pitches</h2>
 {{macro.displayPitches(promotion)}}
+
 
 <h2>Product Pitches</h2>
 {{macro.displayPitches(product)}}

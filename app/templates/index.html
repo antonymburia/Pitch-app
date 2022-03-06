@@ -1,5 +1,6 @@
 {% extends 'base.html' %} 
 {% import 'macros.html' as macro %} 
+{% import 'bootstrap/wtf.html' as wtf%}
 {%block content%}
 <div class="container">
   <div class="row">
@@ -17,7 +18,9 @@
 
           </div>
           <div class="footer">
-            
+            {% if current_user.is_authenticated %} 
+            {{ wtf.quick_form(comment_form) }} 
+            {%endif%}
           </div>
         </div>
       </div>
@@ -25,4 +28,9 @@
     {% endfor %}
   </div>
 </div>
+<style>
+  .card-body{
+    background-color: blue;
+  }
+</style>
 {%endblock%}

@@ -13,38 +13,25 @@ def index():
     view to load index.html
     '''
 
-    #get pitch by category
-
+    
+    
+    
     pitches = Pitch.query.all()
+    pitch = Pitch.query.filter_by(id=Pitch.id).first()
     
     name =  User.query.filter_by(id = Pitch.user_id).first()
+    comment_form = CommentForm()
+    if comment_form.validate_on_submit():
+        comment = comment_form.text.data
+        new_comment = Comment(comment = comment,user = current_user, pitch_id = pitch)
+        new_comment.save_comment()
+        return redirect(url_for('.category'))
+
+
     
 
-    return render_template('index.html', pitches = pitches, name = name)
+    return render_template('index.html', pitches = pitches, name = name, comment_form = comment_form)
     
-    
-
-
-@main.route('/pitches/product_pitches')
-def product_pitches():
-    
-
-    pitches = Pitch.get_pitches('product')
-
-    return pitches
-
-@main.route('/pitches/promotion_pitches')
-def promotion_pitches():
-
-    pitches = Pitch.get_pitches('promotion')
-
-    return pitches
-
-@main.route('/pitches/interview_pitches')
-def interview_pitches():
-
-    pitches = Pitch.get_pitches('interview')
-    return pitches
 
 @main.route('/user/<usersname>')
 def profile(usersname):
@@ -84,7 +71,7 @@ def category():
     interview_pitches = Pitch.query.filter_by(category='interview').all()
     product_pitches = Pitch.query.filter_by(category='product').all()
     promotion_pitches = Pitch.query.filter_by(category='promotion').all()
-    pr = 'pr'
 
-    return render_template('category.html', interview = interview_pitches, product = product_pitches, promotion = promotion_pitches, pr = pr)
+
+    return render_template('category.html', interview = interview_pitches, product = product_pitches, promotion = promotion_pitches)
 
