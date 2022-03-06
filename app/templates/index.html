@@ -1,12 +1,15 @@
-{% extends 'base.html' %} 
-{% import 'macros.html' as macro %} 
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
 {% import 'bootstrap/wtf.html' as wtf%}
+{%block styles%} {{ super() }}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous"> 
+{%endblock%}
 {%block content%}
 <div class="container">
   <div class="row">
     <h2><b>Pitch App</b></h2>
     {{message}}
-    {% for pitch in pitches %} 
+    {% for pitch in pitches %}
     <div class="col-md-4">
       <div class="content">
         <div class="card">
@@ -15,7 +18,7 @@
           </div>
           <div class="card-body">
             {{pitch.content}} <br>
-            
+
 
           </div>
           <div class="description">
@@ -23,11 +26,20 @@
           </div>
           <br>
           <div class="footer">
-            {% if current_user.is_authenticated %} 
-            {{ wtf.quick_form(comment_form) }} 
+            {% if current_user.is_authenticated %}
+            {{ wtf.quick_form(comment_form) }}
             {%endif%}
             <a href="/comments/"><button>View Comments</button></a>
           </div>
+          <div class="buttons">
+            
+              <i class="far fa-thumbs-up"></i>
+            {{pitch.likes}}
+            
+              <i class="far fa-thumbs-down"></i>
+            {{pitch.dislikes}}
+          </div>
+
         </div>
       </div>
     </div>
@@ -35,23 +47,26 @@
   </div>
 </div>
 <style>
-  .card{
-    background-color: rgb(241,242,243,0.3);
+  .card {
+    background-color: rgb(241, 242, 243, 0.3);
     border-radius: 5%;
-    box-shadow: 1px 2px 2px 1px rgb(41,147,174);
+    box-shadow: 1px 2px 2px 1px rgb(41, 147, 174);
     padding: 2%;
   }
-  .card-header{
+
+  .card-header {
     padding: 1%;
-    background-color: rgb(241,242,243);
+    background-color: rgb(241, 242, 243);
     border-radius: 5%;
-    
+
   }
-  .card-body{
+
+  .card-body {
     padding: 1%;
     height: 180px;
   }
-  .card-footer{
+
+  .card-footer {
     display: flex;
     flex-wrap: wrap;
   }
