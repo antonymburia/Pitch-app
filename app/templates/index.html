@@ -14,8 +14,11 @@
           </div>
           <div class="card-body">
             {{pitch.content}} <br>
-            <b>{{pitch.add_description}}</b>
+            
 
+          </div>
+          <div class="description">
+            <b>{{pitch.add_description}}</b>
           </div>
           <div class="footer">
             {% if current_user.is_authenticated %} 
@@ -29,8 +32,20 @@
   </div>
 </div>
 <style>
+  .card{
+    border: solid 1px;
+    border-radius: 5%;
+    padding: 2%;
+  }
+  .card-header{
+    padding: 1%;
+    background-color: rgb(241,242,243);
+    border-radius: 5%;
+    
+  }
   .card-body{
-    background-color: blue;
+    padding: 1%;
+    height: 200px;
   }
 </style>
 {%endblock%}
