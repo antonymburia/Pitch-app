@@ -3,23 +3,47 @@ from flask_login import login_required,current_user
 from .forms import UpdateProfile, PitchForm,CommentForm
 from flask import render_template,redirect,url_for,abort,request
 from ..models import User,Pitch,Comment
-from .. import db,photos
+from .. import db
 
 
 #Views
 @main.route('/')
 def index():
-  '''
-  view to load index.html
-  '''
+    '''
+    view to load index.html
+    '''
 
-  #get pitch by category
+    #get pitch by category
 
-  product_piches = Pitch.get_pitches('product')
-  interview_piches = Pitch.get_pitches('interview')
-  motivation_pitches = Pitch.get_pitches('motivation')
+    pitches = Pitch.query.all()
+    
 
-  return render_template('index.html', interview = interview_piches, product = product_piches, motivation = motivation_pitches)
+    return render_template('index.html', pitches = pitches)
+    
+    
+
+
+@main.route('/pitches/product_pitches')
+def product_pitches():
+    
+
+    pitches = Pitch.get_pitches('product')
+
+    return pitches
+
+@main.route('/pitches/promotion_pitches')
+def promotion_pitches():
+
+    pitches = Pitch.get_pitches('promotion')
+
+    return pitches
+
+@main.route('/pitches/interview_pitches')
+def interview_pitches():
+
+    pitches = Pitch.get_pitches('interview')
+    return pitches
+
 @main.route('/user/<usersname>')
 def profile(usersname):
     user = User.query.filter_by(username = usersname).first()

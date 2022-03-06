@@ -1,14 +1,16 @@
-{% extends 'base.html' %} {% import 'macros.html' as macro %} {%block content%}
+{% extends 'base.html' %} 
+{% import 'macros.html' as macro %} 
+{%block content%}
 <div class="container">
   <div class="row">
     <h2><b>Pitch App</b></h2>
-    {% for pitch in pitches %}
+    {% for pitch in pitches %} 
     <div class="col-md-4">
       <div class="content">
         <div class="card">
           <div class="card-header">header</div>
           <div class="card-body">
-            {{macro.displayPitches(pitches)}}
+            {{pitch.content}}
           </div>
           <div class="footer">
 

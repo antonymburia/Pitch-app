@@ -7,8 +7,10 @@
       {% if user.profile_pic_path %}
       <img src="{{url_for( 'static',filename=user.profile_pic_path)}} " alt="profile-pic " class="img-circle "> 
       {%else%}
-      <p> Upload a profile pic</p>
+      <p> no set profile picture</p>
+      <a href=""><button class="btn btn-primary">Update Profile</button></a>
       {% endif %}
     </div>
   </div>
 </div>
+{% endblock %}
