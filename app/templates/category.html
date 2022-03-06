@@ -1,12 +1,52 @@
-{% extends 'base.html' %} 
-{% import 'macros.html' as macro %} 
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
 {%block content%}
-<h2>Interview pitches</h2>
-{{macro.displayPitches(interview)}}
+<div class="container">
+ <div class="col">
+  <div class="card">
+   <div class="card-header">
+    <h2><b>Interview pitches</b></h2>
+   </div>
+   <div class="card-body">
+    {{macro.displayPitches(interview)}}
+   </div>
+   <div class="card-footer">
 
-<h2>Promotion Pitches</h2>
-{{macro.displayPitches(promotion)}}
+   </div>
+  </div>
+  <div class="card">
+   <div class="card-header">
+    <h2><b>Promotion Pitches</b></h2>
+   </div>
+   <div class="card-body">
+    {{macro.displayPitches(promotion)}}
+   </div>
+   <div class="card-footer">
 
-<h2>Product Pitches</h2>
-{{macro.displayPitches(product)}}
+   </div>
+  </div>
+  <div class="card">
+   <div class="card-header">
+    <h2><b>Product Pitches</b></h2>
+   </div>
+   <div class="card-body">
+    {{macro.displayPitches(product)}}
+   </div>
+   <div class="card-footer">
+
+   </div>
+  </div>
+ </div>
+</div>
+
+<style>
+
+ .card-header{
+  background-color: rgb(241,242,243);
+ }
+ .card-body{
+  padding: 2%;
+  line-height: 2;
+ }
+</style>
 {% endblock %}

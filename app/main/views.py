@@ -1,13 +1,13 @@
 from . import main
 from flask_login import login_required,current_user
 from .forms import UpdateProfile, PitchForm,CommentForm
-from flask import render_template,redirect,url_for,abort,request
+from flask import render_template,redirect,url_for,abort,request,flash
 from ..models import User,Pitch,Comment
 from .. import db
 
 
 #Views
-@main.route('/')
+@main.route('/', methods = ['GET','POST'])
 def index():
     '''
     view to load index.html
@@ -25,8 +25,9 @@ def index():
         comment = comment_form.text.data
         new_comment = Comment(comment = comment,user = current_user, pitch_id = pitch)
         new_comment.save_comment()
-        return redirect(url_for('.category'))
-
+        
+        flash('Your comment has been submitted')
+        return redirect(url_for('.index'))
 
     
 
@@ -76,3 +77,10 @@ def category():
 
     return render_template('category.html', interview = interview_pitches, product = product_pitches, promotion = promotion_pitches)
 
+@main.route('/comments/')
+def comments():
+    pitch = Pitch.query.filter_by(id=Pitch.id).first()
+    comments = Comment.get_comments(pitch)
+    name = User.query.filter_by(id = Comment.pitch).first()
+
+    return render_template('comments.html', comments = comments, name = name)

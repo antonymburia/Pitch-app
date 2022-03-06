@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+{%block content%}
+
+<div class="container">
+ <h3><b>Comments For this Pitch</b></h3>
+ {% for comment in comments %}
+ <div class="row">
+  <div class="col-md-4"></div>
+  <div class="col">
+   <div class="card">
+    <div class="card-header"></div>
+    <div class="card-body">
+     {{comment.comment}} by user {{name}}
+    </div>
+    <div class="card-footer">
+
+    </div>
+   </div>
+  </div>
+  <div class="col"></div>
+ </div>
+ {% endfor %}
+</div>
+<style>
+ .card{
+  text-align: center;
+  margin-top: 1%;
+ border: 1px solid;
+ border-radius: 5%;
+ }
+</style>
+
+{% endblock %}
