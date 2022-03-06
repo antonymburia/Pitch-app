@@ -12,5 +12,11 @@
       {% endif %}
     </div>
   </div>
+
+  <div class="pitches">
+    {% for pitch in pitches %}
+    {{pitch.content}} <br>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

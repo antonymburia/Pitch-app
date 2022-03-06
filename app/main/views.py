@@ -17,8 +17,10 @@ def index():
 
     pitches = Pitch.query.all()
     
+    name =  User.query.filter_by(id = Pitch.user_id).first()
+    
 
-    return render_template('index.html', pitches = pitches)
+    return render_template('index.html', pitches = pitches, name = name)
     
     
 
@@ -48,11 +50,15 @@ def interview_pitches():
 def profile(usersname):
     user = User.query.filter_by(username = usersname).first()
     user_joined = user.date_joined.strftime('%b %d, %Y')
+    pitches = Pitch.query.filter_by(user_id=Pitch.user_id).all()
 
     if user is None:
         abort(404)
+        
 
-    return render_template("profile/profile.html", user = user, date = user_joined)
+    
+
+    return render_template("profile/profile.html", user = user, date = user_joined, pitches = pitches)
 
 @main.route('/pitch/new', methods = ['GET','POST'])
 @login_required
@@ -73,4 +79,11 @@ def new_pitch():
     
     return render_template('newpitch.html',pitch_form = pitch_form )
 
+@main.route('/category/')
+def category():
+    interview_pitches = Pitch.query.filter_by(category='interview').all()
+    product_pitches = Pitch.query.filter_by(category='product').all()
+    promotion_pitches = Pitch.query.filter_by(category='promotion').all()
+
+    return render_template('category.html', interview = interview_pitches, product = product_pitches, promotion = promotion_pitches)
 
