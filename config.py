@@ -1,6 +1,6 @@
 import os
 import re
-# SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitchapp'
+
 class Config:
     '''
     General configuration parent class
@@ -8,6 +8,7 @@ class Config:
 
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitchapp'
 
     #email configurations
     MAIL_SERVER = 'smtp.gmail.com'
@@ -30,8 +31,9 @@ class ProdConfig(Config):
         
     '''
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-    # if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
-    #     SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
+
+    
+   
    
     
     
@@ -45,7 +47,7 @@ class DevConfig(Config):
         Config: The parent configuration class with General configuration settings
     '''
 
-    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+  
 
     DEBUG = True
 config_options = {
