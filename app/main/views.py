@@ -29,24 +29,7 @@ def index():
         flash('Your comment has been submitted')
         return redirect(url_for('.index'))
 
-    pitch = Pitch.get_pitch(pitch.id)
-    posted_date = pitch.posted.strftime('%b %d, %Y')
-
-    if request.args.get("like"):
-        pitch.likes = pitch.likes + 1
-
-        db.session.add(pitch)
-        db.session.commit()
-
-        
-
-    elif request.args.get("dislike"):
-        pitch.dislikes = pitch.dislikes + 1
-
-        db.session.add(pitch)
-        db.session.commit()
-
-
+    
     
 
     return render_template('index.html', pitches = pitches, name = name, comment_form = comment_form)
