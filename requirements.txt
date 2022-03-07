@@ -16,6 +16,7 @@ importlib-resources==5.4.0
 itsdangerous==1.1.0
 Jinja2==2.11.3
 Mako==1.1.6
+MarkupSafe==2.0.1
 psycopg2==2.9.3
 SQLAlchemy==1.4.32
 visitor==0.1.3
