@@ -17,7 +17,7 @@ class Config:
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-    SENDER_EMAIL = 'antonymburia10@gmail.com'
+    SENDER_EMAIL = os.environ.get("MAIL_USERNAME")
    
 
 
@@ -30,7 +30,7 @@ class ProdConfig(Config):
         Config: The parent configuration class with General configuration settings
         
     '''
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = 'postgresql://nsigjrvudysqnn:92d46f0fb5d0c995e03a73d38697daaa3bb0fad485c87132a3192a9378de7115@ec2-54-156-110-139.compute-1.amazonaws.com:5432/debdkkrsfugedb'
     
 
     
