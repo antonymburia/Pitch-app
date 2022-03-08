@@ -8,7 +8,7 @@ class Config:
 
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     SECRET_KEY = 'thisissecretkey'
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitchapp'
+    
 
     #email configurations
     MAIL_SERVER = 'smtp.gmail.com'
@@ -16,7 +16,7 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = 'postgresql://nsigjrvudysqnn:92d46f0fb5d0c995e03a73d38697daaa3bb0fad485c87132a3192a9378de7115@ec2-54-156-110-139.compute-1.amazonaws.com:5432/debdkkrsfugedb'
     
    
 
