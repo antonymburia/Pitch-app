@@ -7,7 +7,7 @@ class Config:
     '''
 
     UPLOADED_PHOTOS_DEST ='app/static/photos'
-    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SECRET_KEY = 'thisissecretkey'
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/pitchapp'
 
     #email configurations
