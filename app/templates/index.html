@@ -14,7 +14,7 @@
       <div class="content">
         <div class="card">
           <div class="card-header">
-            <h4><b>This pitch was posted by {{name}}</b></h4>
+            <h4><b>This pitch was posted by {{pitch.user_id}}</b></h4>
           </div>
           <div class="card-body">
             {{pitch.content}} <br>
@@ -32,7 +32,6 @@
             <a href="/comments/"><button>View Comments</button></a>
           </div>
           <div class="buttons">
-            
               <i class="far fa-thumbs-up"></i>
             {{pitch.likes}}
             
@@ -52,6 +51,7 @@
     border-radius: 5%;
     box-shadow: 1px 2px 2px 1px rgb(41, 147, 174);
     padding: 2%;
+    margin-bottom: 5%;
   }
 
   .card-header {

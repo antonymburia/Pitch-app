@@ -19,11 +19,11 @@ def index():
     pitches = Pitch.query.all()
     pitch = Pitch.query.filter_by(id=Pitch.id).first()
     
-    name =  User.query.filter_by(id = Pitch.user_id).first()
+    name =  User.query.filter_by(id =pitch.user_id).first()
     comment_form = CommentForm()
     if comment_form.validate_on_submit():
         comment = comment_form.text.data
-        new_comment = Comment(comment = comment,user = current_user, pitch_id = pitch)
+        new_comment = Comment(comment = comment,user_id = current_user, pitch = pitch)
         new_comment.save_comment()
         
         flash('Your comment has been submitted')
