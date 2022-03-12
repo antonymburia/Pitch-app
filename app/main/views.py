@@ -39,7 +39,8 @@ def index():
 def profile(usersname):
     user = User.query.filter_by(username = usersname).first()
     user_joined = user.date_joined.strftime('%b %d, %Y')
-    pitches = Pitch.query.filter_by(user_id=Pitch.user_id).all()
+    pitches = Pitch.query.filter_by(user_id=Pitch.user_id)
+
 
     if user is None:
         abort(404)

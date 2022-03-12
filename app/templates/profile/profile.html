@@ -2,6 +2,7 @@
 {% block content %}
 <div class="container">
   <h3 style="text-align: center;"> <strong>{{user.username}}</strong> </h3>
+  <h4><b>joined on: {{date}}</b></h4>
   <div class="col">
     <div class="thumbnail">
       {% if user.profile_pic_path %}
