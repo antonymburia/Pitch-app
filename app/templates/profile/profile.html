@@ -17,8 +17,6 @@
 
   <div class="row">
     {% for pitch in pitches %}
-    <div class="col-md-3"></div>
-    <div class="col-md-3">
       <div class="pitches">
 
         <div class="card">
@@ -29,8 +27,7 @@
           <div class="card-footer"></div>
         </div>
       </div>
-    </div>
-    <div class="col-md-3"></div>
+
 
     {% endfor %}
     
@@ -39,7 +36,9 @@
 </div>
 <style>
   .card{
+    height: 180px;
     width: 100%;
+    
   }
 </style>
 {% endblock %}
